@@ -9,27 +9,27 @@ const app = new App({
   socketMode: true
 });
 
-app.command("/dsb-help", async ({ ack, respond }) => {
+app.command("/rcsb-help", async ({ ack, respond }) => {
   await ack();
   await respond({
     text:
 `Available Commands:
-/dsb-pingy - Check bot latency
-/dsb-help - Show available commands
-/dsb-catfact - Get a cat fact
-/dsb-dogpic - Get a random dog picture`
+/rcsb-pingy - Check bot latency
+/rcsb-help - Show available commands
+/rcsb-catfact - Get a cat fact
+/rcsb-dogpic - Get a random dog picture`
   });
 });
 
 
-app.command("/dsb-pingy", async ({ command, ack, respond }) => {
+app.command("/rcsb-pingy", async ({ command, ack, respond }) => {
   const start = Date.now();
   await ack();
   const latency = Date.now() - start;
   await respond({ text: `Pong!!\nLatency: ${latency}ms` });
 });
 
-app.command("/dsb-catfact", async ({ ack, respond }) => {
+app.command("/rcsb-catfact", async ({ ack, respond }) => {
   await ack();
 
   try {
@@ -39,7 +39,7 @@ app.command("/dsb-catfact", async ({ ack, respond }) => {
     await respond({ text: "Failed to fetch a cat fact." });
   }
 });
-app.command("/dsb-dogpic", async ({ ack, respond }) => {
+app.command("/rcsb-dogpic", async ({ ack, respond }) => {
   await ack();
 
   try {
