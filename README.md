@@ -7,3 +7,6 @@ Available Commands:
 /dsb-help - Show available commands
 /dsb-catfact - Get a cat fact
 /dsb-dogpic - Get a random dog picture
+
+Credits - 
+I used Gemini AI for debugging
