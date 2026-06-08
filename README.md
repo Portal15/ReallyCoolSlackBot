@@ -4,7 +4,7 @@ MyCoolSlackBot is a small, playful Slack bot built for fun, learning, and automa
 
 ## What it can do
 - Respond to commands and messages in Slack with friendly replies 🤝
-- Send a cool random dog pictures 🚀
+- Send a cool random dog and cat pictures 🚀
 - Send a cool cat fact 🔁
 - Easy to extend — add new command handlers in `index.js` 🧩
 
