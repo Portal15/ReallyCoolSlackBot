@@ -17,7 +17,8 @@ app.command("/rcsb-help", async ({ ack, respond }) => {
 /rcsb-pingy - Check bot latency
 /rcsb-help - Show available commands
 /rcsb-catfact - Get a cat fact
-/rcsb-dogpic - Get a random dog picture`
+/rcsb-dogpic - Get a random dog picture
+/rcsb-catpic - Get a random cat picture`
   });
 });
 
@@ -26,7 +27,7 @@ app.command("/rcsb-pingy", async ({ command, ack, respond }) => {
   const start = Date.now();
   await ack();
   const latency = Date.now() - start;
-  await respond({ text: `Pong!!\nLatency: ${latency}ms` });
+  await respond({ text: `Pongy! :)\nLatency: ${latency}ms` });
 });
 
 app.command("/rcsb-catfact", async ({ ack, respond }) => {
@@ -34,7 +35,7 @@ app.command("/rcsb-catfact", async ({ ack, respond }) => {
 
   try {
     const response = await axios.get("https://catfact.ninja/fact");
-    await respond({ text: `Cat Fact:\n${response.data.fact}` });
+    await respond({ text: `A Really Cool Cat Fact:\n${response.data.fact}` });
   } catch (err) {
     await respond({ text: "Failed to fetch a cat fact." });
   }
@@ -44,7 +45,7 @@ app.command("/rcsb-dogpic", async ({ ack, respond }) => {
 
   try {
     const response = await axios.get("https://dog.ceo/api/breeds/image/random");
-    await respond({ text: `Dog Picture:\n${response.data.message}` });
+    await respond({ text: `A Really Cool Dog Picture:\n${response.data.message}` });
     await respond({text: `Image: ${response.data.message}`, blocks: [
       {
         type: "image",
@@ -58,8 +59,27 @@ app.command("/rcsb-dogpic", async ({ ack, respond }) => {
   }
 });
 
+app.command("/rcsb-catpic", async ({ ack, respond }) => {
+  await ack();
+  
+  try { 
+    const response = await axios.get("https://api.thecatapi.com/v1/images/search");
+    await respond({ text: `A Really Cool Cat Picture:\n${response.data[0].url}` });
+    await respond({text: `Image: ${response.data[0].url}`, blocks: [
+      {
+        type: "image",
+        image_url: response.data[0].url,
+        alt_text: "Image of a cat"
+      }
+    ]
+  });
+  } catch (err) {
+    await respond({ text: "Failed to fetch a cat picture." });
+  }
+});
+
 
 (async () => {
   await app.start();
-  console.log("bot is running!");
+  console.log("bot is running!!");
 })();
