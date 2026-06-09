@@ -45,7 +45,10 @@ node index.js
 
 ## Credits
 - Idea and inspiration: Hack Club — big thanks for the spark 💡
-- Debugging help from Gemini — thanks for the assist 🤖
+
+## AI Usage
+- Debugging help from Gemini 3.1 Pro 🤖
+- Writing assit for the readme file and the devlogs with Gemini 3.1 Pro 🤖
 
 ---
 Made with ☕ and curiosity. Happy hacking!
