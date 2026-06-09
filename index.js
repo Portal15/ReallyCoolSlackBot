@@ -63,12 +63,12 @@ app.command("/rcsb-catpic", async ({ ack, respond }) => {
   await ack();
   
   try { 
-    const response = await axios.get("https://api.thecatapi.com/v1/images/search");
-    await respond({ text: `A Really Cool Cat Picture:\n${response.data[0].url}` });
-    await respond({text: `Image: ${response.data[0].url}`, blocks: [
+    const response = await axios.get("https://shibe.online/api/cats?count=1");
+    await respond({ text: `A Really Cool Cat Picture:\n${response.data[0]}` });
+    await respond({text: `Image: ${response.data[0]}`, blocks: [
       {
         type: "image",
-        image_url: response.data[0].url,
+        image_url: response.data[0],
         alt_text: "Image of a cat"
       }
     ]
